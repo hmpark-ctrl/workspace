@@ -174,31 +174,34 @@
   .section-desc { font-size: 13.5px; color: var(--ink-faint); font-weight: 500; }
   .section-count { margin-left: auto; font-size: 12.5px; color: var(--ink-faint); font-weight: 600; background: var(--paper); border: 1px solid var(--line); padding: 4px 11px; border-radius: 100px; }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); gap: 16px; min-height: 64px; }
-  .card { position: relative; display: flex; align-items: center; gap: 13px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 16px 16px 18px; text-decoration: none; color: inherit; cursor: pointer; box-shadow: var(--shadow); transition: transform 0.22s cubic-bezier(0.22,1,0.36,1), box-shadow 0.22s, border-color 0.22s; overflow: hidden; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(238px, 1fr)); gap: 12px; min-height: 58px; }
+  .card { position: relative; display: flex; flex-direction: row; align-items: center; gap: 12px; min-height: 76px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 12px 14px; text-decoration: none; color: inherit; cursor: pointer; box-shadow: var(--shadow); transition: transform 0.22s cubic-bezier(0.22,1,0.36,1), box-shadow 0.22s, border-color 0.22s; overflow: hidden; }
   .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--grad); transform: scaleY(0); transform-origin: bottom; transition: transform 0.25s cubic-bezier(0.22,1,0.36,1); }
   .card.mine::before { background: linear-gradient(180deg, #f97316, #fb923c); }
-  .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--line-soft); }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--line-soft); }
   .card:hover::before { transform: scaleY(1); }
   .card:focus-visible { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
-  .drag-handle { flex-shrink: 0; font-size: 18px; color: var(--ink-faint); cursor: grab; opacity: 0; margin-right: -4px; transition: opacity 0.2s, color 0.2s; display: grid; place-items: center; width: 16px; }
+  .card-main { display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1; }
+  .drag-handle { flex-shrink: 0; font-size: 18px; color: var(--ink-faint); cursor: grab; opacity: 0; margin: 0 -2px 0 -3px; transition: opacity 0.2s, color 0.2s; display: grid; place-items: center; width: 16px; }
   .card:hover .drag-handle { opacity: 0.55; }
   .drag-handle:hover { color: var(--accent); opacity: 1 !important; }
   .drag-handle:active { cursor: grabbing; }
-  .card-icon { width: 44px; height: 44px; flex-shrink: 0; display: grid; place-items: center; border-radius: 12px; font-size: 22px; background: var(--accent-soft); color: var(--accent); transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), background 0.22s, color 0.22s; }
-  .card:hover .card-icon { background: var(--grad); color: #fff; transform: scale(1.08) rotate(-4deg); }
+  .card-body { min-width: 0; flex: 1; }
+  .card-name { font-size: 14.8px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.35; color: var(--ink); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; word-break: keep-all; overflow-wrap: anywhere; }
+  .card-host { font-size: 12px; color: var(--ink-faint); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 3px; }
+  .card-bottom { display: contents; }
+  .card-actions { display: flex; align-items: center; justify-content: flex-end; gap: 5px; margin-left: auto; flex-shrink: 0; }
+  .card-icon { width: 34px; height: 34px; flex-shrink: 0; display: grid; place-items: center; border-radius: 11px; font-size: 17px; background: var(--accent-soft); color: var(--accent); transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), background 0.22s, color 0.22s; }
+  .card:hover .card-icon { background: var(--grad); color: #fff; transform: scale(1.04) rotate(-3deg); }
   .card.mine .card-icon { background: var(--orange-soft); color: var(--orange); }
   .card.mine:hover .card-icon { background: linear-gradient(135deg, #f97316, #fb923c); color: #fff; }
-  .card-body { min-width: 0; flex: 1; }
-  .card-name { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .card-host { font-size: 12.5px; color: var(--ink-faint); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
-  .card-arrow { flex-shrink: 0; font-size: 17px; color: var(--ink-faint); opacity: 0; transform: translateX(-4px); transition: opacity 0.22s, transform 0.22s, color 0.22s; }
-  .card:hover .card-arrow { opacity: 1; transform: translateX(0); color: var(--accent); }
-  .card-edit, .card-del { flex-shrink: 0; font-size: 16px; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 8px; color: var(--ink-faint); background: transparent; border: none; cursor: pointer; opacity: 0; transition: opacity 0.2s, background 0.2s, color 0.2s; }
-  .card:hover .card-edit, .card:hover .card-del { opacity: 1; }
+  .card-arrow { flex-shrink: 0; font-size: 16px; color: var(--ink-faint); opacity: 0.5; transition: opacity 0.22s, transform 0.22s, color 0.22s; }
+  .card:hover .card-arrow { opacity: 1; transform: translateX(2px); color: var(--accent); }
+  .card-edit, .card-del { flex-shrink: 0; font-size: 15px; width: 0; height: 28px; display: grid; place-items: center; border-radius: 8px; color: var(--ink-faint); background: transparent; border: none; cursor: pointer; opacity: 0; padding: 0; overflow: hidden; pointer-events: none; transition: width 0.18s, opacity 0.2s, background 0.2s, color 0.2s; }
+  .card:hover .card-edit, .card:hover .card-del { width: 28px; opacity: 1; pointer-events: auto; }
   .card-edit:hover { background: var(--accent-soft); color: var(--accent-deep); }
   .card-del:hover { background: #fdeaea; color: #c0392b; }
-  .badge { font-size: 10.5px; font-weight: 700; color: var(--accent-deep); background: var(--accent-soft); padding: 2px 7px; border-radius: 6px; margin-left: 6px; letter-spacing: 0.02em; vertical-align: middle; }
+  .badge { font-size: 10.2px; font-weight: 700; color: var(--accent-deep); background: var(--accent-soft); padding: 2px 6px; border-radius: 6px; margin-left: 5px; letter-spacing: 0.02em; vertical-align: middle; }
   .badge.hot { color: #fff; background: linear-gradient(135deg, #f97316, #fb923c); }
 
   .add-tile { display: flex; align-items: center; justify-content: center; gap: 9px; background: transparent; border: 1.5px dashed var(--line); border-radius: var(--radius); padding: 16px; color: var(--ink-faint); cursor: pointer; font-family: inherit; font-size: 14.5px; font-weight: 600; min-height: 76px; transition: border-color 0.2s, color 0.2s, background 0.2s; }
@@ -245,7 +248,9 @@
     .clock-time { font-size: 30px; }
     header { align-items: flex-start; }
     .grid { grid-template-columns: 1fr; }
+    .card { min-height: 72px; padding: 11px 12px; }
     .drag-handle { opacity: 0.4; }
+    .card-edit, .card-del { width: 28px; opacity: 0.85; pointer-events: auto; }
   }
 </style>
 </head>
@@ -274,7 +279,7 @@
   </div>
   <div class="hint">
     <i class="ti ti-arrows-move"></i>
-    <span class="hint-text">카드 왼쪽의 손잡이를 끌어 순서를 바꿀 수 있어요. 카드에 마우스를 올리면 나타나는 연필(<i class="ti ti-pencil"></i>) 아이콘으로 이름을 수정하고, 휴지통(<i class="ti ti-trash"></i>) 아이콘으로 삭제할 수 있습니다. 맨 아래 '내 즐겨찾기'에는 나만의 링크를 직접 추가할 수 있으며, 모든 변경 사항은 이 기기(브라우저)에만 저장됩니다.</span>
+    <span class="hint-text">카드 왼쪽의 손잡이를 끌어 모든 섹션 사이에서 자유롭게 이동할 수 있어요. 카드 우측의 연필(<i class="ti ti-pencil"></i>) 아이콘으로 이름을 수정하고, 휴지통(<i class="ti ti-trash"></i>) 아이콘으로 삭제할 수 있습니다. 내가 추가한 링크도 다른 카드와 동일하게 이동되며, 모든 변경 사항은 이 기기(브라우저)에만 저장됩니다.</span>
   </div>
 
   <section class="section" data-section data-idx="0">
@@ -307,7 +312,7 @@
   <section class="section" data-section data-mine>
     <div class="section-head">
       <div class="section-icon ic-mine"><i class="ti ti-bookmark"></i></div>
-      <div><div class="section-title">내 즐겨찾기</div><div class="section-desc">내가 자주 쓰는 링크를 직접 추가하세요 · 이 기기에만 저장됩니다</div></div>
+      <div><div class="section-title">내 즐겨찾기</div><div class="section-desc">내가 직접 추가한 링크 · 다른 섹션으로 자유롭게 이동 가능</div></div>
       <span class="section-count" id="mineCount"></span>
     </div>
     <div class="grid" id="mineGrid"></div>
@@ -340,7 +345,7 @@
 </div>
 
 <script>
-  var STORE_KEY = "ec-workspace-layout-v1";
+  var STORE_KEY = "ec-workspace-layout-v2";
   var MINE_KEY = "ec-workspace-personal-v1";
   var THEME_KEY = "ec-workspace-theme-v1";
   var OVERRIDES_KEY = "ec-workspace-overrides-v1"; /* 고정 카드의 이름 변경 / 삭제(숨김) 내역 - 기기별 저장 */
@@ -351,7 +356,6 @@
       { id: "task-manager", name: "프로젝트 태스크 관리", url: "https://project-manager-wine-three.vercel.app/", icon: "ti-layout-kanban", badge: "" },
       { id: "team-calendar", name: "운영 캘린더", url: "https://calender-seven-amber.vercel.app/", icon: "ti-calendar-event", badge: "" },
       { id: "sales-record", name: "영업실적기재", url: "https://docs.google.com/spreadsheets/d/1WeUHusoc8GLnR9N4XUOBPClLEfLcf09Dp6vMa6VKdm4/edit?usp=sharing", icon: "ti-table", badge: "대시보드 연동" },
-      { id: "task-individual", name: "개별 업무 관리", url: "https://i-scream-media-hq.slack.com/lists/T0A3WHEFERH/F0AMQN9P62J", icon: "ti-checklist", badge: "Slack" },
       { id: "weekly-report", name: "주간보고", url: "https://docs.google.com/document/d/1cXK5sz2ReNj6Eebu1dcOUlCenNqrYpvkJUK-2ACxMC0/edit?usp=drive_link", icon: "ti-file-text", badge: "" },
       { id: "confluence", name: "Confluence 스페이스", url: "https://iscreamconsulting.atlassian.net/wiki/x/GIEd", icon: "ti-notebook", badge: "" }
     ],
@@ -402,110 +406,114 @@
     try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
   });
 
-  /* ===== 고정 섹션 ===== */
+  /* ===== 전체 카드 레이아웃: 기본 카드 + 내가 추가한 링크를 하나의 드래그 그룹으로 관리 ===== */
+  var fixedGrids = document.querySelectorAll("[data-grid]");
+  var counts = document.querySelectorAll("[data-count]");
+  var mineGrid = document.getElementById("mineGrid");
+  var mineCount = document.getElementById("mineCount");
+  var allGrids = Array.prototype.slice.call(fixedGrids).concat([mineGrid]);
+
+  function getMine() { var m = safeGet(MINE_KEY); return Array.isArray(m) ? m : []; }
+  function setMine(arr) { safeSet(MINE_KEY, arr); }
+  function getMineMap() { var map = {}; getMine().forEach(function (x) { map[x.id] = x; }); return map; }
+  function isMineId(id) { return /^mine-/.test(id); }
+
+  function getCardItem(id) {
+    if (BY_ID[id]) return BY_ID[id];
+    return getMineMap()[id] || null;
+  }
+
+  function defaultLayout() {
+    var layout = DEFAULTS.map(function (sec) { return sec.map(function (it) { return it.id; }); });
+    layout.push(getMine().map(function (it) { return it.id; }));
+    return layout;
+  }
+
   function resolveLayout() {
     var saved = safeGet(STORE_KEY);
-    var layout = DEFAULTS.map(function (sec) { return sec.map(function (it) { return it.id; }); });
-    if (saved && Array.isArray(saved) && saved.length === 3) {
+    var layout = defaultLayout();
+    var valid = {};
+    DEFAULTS.forEach(function (sec) { sec.forEach(function (it) { valid[it.id] = true; }); });
+    getMine().forEach(function (it) { valid[it.id] = true; });
+
+    if (saved && Array.isArray(saved)) {
       var seen = {};
-      layout = saved.map(function (arr) {
-        return (Array.isArray(arr) ? arr : []).filter(function (id) {
-          if (BY_ID[id] && !seen[id]) { seen[id] = true; return true; } return false;
+      layout = [0, 1, 2, 3].map(function (i) {
+        return (Array.isArray(saved[i]) ? saved[i] : []).filter(function (id) {
+          if (valid[id] && !seen[id]) { seen[id] = true; return true; }
+          return false;
         });
       });
-      DEFAULTS.forEach(function (sec, i) { sec.forEach(function (it) { if (!seen[it.id]) { layout[i].push(it.id); seen[it.id] = true; } }); });
+
+      DEFAULTS.forEach(function (sec, i) {
+        sec.forEach(function (it) {
+          if (!seen[it.id]) { layout[i].push(it.id); seen[it.id] = true; }
+        });
+      });
+      getMine().forEach(function (it) {
+        if (!seen[it.id]) { layout[3].push(it.id); seen[it.id] = true; }
+      });
     }
     return layout;
   }
 
-  var grids = document.querySelectorAll("[data-grid]");
-  var counts = document.querySelectorAll("[data-count]");
+  function fixedName(item) { var o = getOverrides(); return (o[item.id] && o[item.id].name) ? o[item.id].name : item.name; }
+  function displayName(item) { return BY_ID[item.id] ? fixedName(item) : item.name; }
+  function displayIcon(item) { return BY_ID[item.id] ? item.icon : "ti-link"; }
 
   function makeCard(item) {
-    var name = fixedName(item);
+    var isMine = !BY_ID[item.id];
+    var name = displayName(item);
     var el = document.createElement("div");
-    el.className = "card";
+    el.className = "card" + (isMine ? " mine" : "");
     el.setAttribute("role", "link"); el.setAttribute("tabindex", "0");
     el.dataset.id = item.id; el.dataset.name = name.toLowerCase(); el.dataset.url = item.url;
     var badgeCls = item.badge === "NEW" ? "badge hot" : "badge";
+    var nameHtml = esc(name) + (!isMine && item.badge ? '<span class="' + badgeCls + '">' + esc(item.badge) + '</span>' : '');
     el.innerHTML =
-      '<span class="drag-handle" aria-label="카드 이동 손잡이"><i class="ti ti-grip-vertical"></i></span>' +
-      '<div class="card-icon"><i class="ti ' + item.icon + '"></i></div>' +
-      '<div class="card-body"><div class="card-name">' + esc(name) + (item.badge ? '<span class="' + badgeCls + '">' + esc(item.badge) + '</span>' : '') + '</div>' +
-      '<div class="card-host">' + esc(hostOf(item.url)) + '</div></div>' +
-      '<button class="card-edit" aria-label="이름 수정" title="이름 수정"><i class="ti ti-pencil"></i></button>' +
-      '<button class="card-del" aria-label="삭제" title="삭제"><i class="ti ti-trash"></i></button>' +
-      '<i class="ti ti-arrow-up-right card-arrow"></i>';
+      '<div class="card-main">' +
+        '<span class="drag-handle" aria-label="카드 이동 손잡이"><i class="ti ti-grip-vertical"></i></span>' +
+        '<div class="card-body"><div class="card-name">' + nameHtml + '</div>' +
+        '<div class="card-host">' + esc(hostOf(item.url)) + '</div></div>' +
+      '</div>' +
+      '<div class="card-actions">' +
+        '<button class="card-edit" aria-label="수정" title="수정"><i class="ti ti-pencil"></i></button>' +
+        '<button class="card-del" aria-label="삭제" title="삭제"><i class="ti ti-trash"></i></button>' +
+        '<i class="ti ti-arrow-up-right card-arrow"></i>' +
+        '<div class="card-icon"><i class="ti ' + displayIcon(item) + '"></i></div>' +
+      '</div>';
+
     el.addEventListener("click", function (e) {
       if (e.target.closest(".drag-handle")) return;
-      if (e.target.closest(".card-edit")) { e.stopPropagation(); openModal("rename-fixed", { id: item.id, name: fixedName(item) }); return; }
+      if (e.target.closest(".card-edit")) {
+        e.stopPropagation();
+        if (isMine) openModal("edit-mine", item);
+        else openModal("rename-fixed", { id: item.id, name: fixedName(item) });
+        return;
+      }
       if (e.target.closest(".card-del")) {
         e.stopPropagation();
-        if (confirm('"' + fixedName(item) + '" 카드를 삭제할까요?\n나중에 "기본값으로 초기화" 버튼으로 다시 불러올 수 있어요.')) {
-          var o = getOverrides(); o[item.id] = o[item.id] || {}; o[item.id].hidden = true; setOverrides(o); renderFixed();
+        if (isMine) {
+          if (confirm('"' + item.name + '" 링크를 삭제할까요?')) {
+            setMine(getMine().filter(function (x) { return x.id !== item.id; }));
+            saveCurrentLayout(); renderAll();
+          }
+        } else {
+          if (confirm('"' + fixedName(item) + '" 카드를 삭제할까요?\n나중에 "기본값으로 초기화" 버튼으로 다시 불러올 수 있어요.')) {
+            var o = getOverrides(); o[item.id] = o[item.id] || {}; o[item.id].hidden = true; setOverrides(o);
+            saveCurrentLayout(); renderAll();
+          }
         }
         return;
       }
       window.open(item.url, "_blank", "noopener");
     });
-    el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { if (e.target.closest(".card-edit") || e.target.closest(".card-del")) return; e.preventDefault(); window.open(item.url, "_blank", "noopener"); } });
-    return el;
-  }
-
-  function renderFixed() {
-    var layout = resolveLayout();
-    grids.forEach(function (g, i) {
-      g.innerHTML = "";
-      layout[i].forEach(function (id) { if (isHidden(id)) return; g.appendChild(makeCard(BY_ID[id])); });
-      counts[i].textContent = g.querySelectorAll(".card").length;
-    });
-  }
-  function captureFixed() { var out = []; grids.forEach(function (g) { out.push(Array.prototype.map.call(g.querySelectorAll(".card"), function (c) { return c.dataset.id; })); }); return out; }
-  function updateFixedCounts() { grids.forEach(function (g, i) { counts[i].textContent = g.querySelectorAll(".card").length; }); }
-
-  renderFixed();
-  grids.forEach(function (g) {
-    new Sortable(g, {
-      group: "ec-cards", handle: ".drag-handle", animation: 160,
-      ghostClass: "sortable-ghost", chosenClass: "sortable-chosen", dragClass: "sortable-drag",
-      onStart: function () { grids.forEach(function (x) { x.classList.add("drop-target"); }); },
-      onEnd: function () { grids.forEach(function (x) { x.classList.remove("drop-target"); }); updateFixedCounts(); safeSet(STORE_KEY, captureFixed()); }
-    });
-  });
-  document.getElementById("resetBtn").addEventListener("click", function () {
-    if (confirm("카드 순서, 삭제, 이름 변경 내역을 모두 기본값으로 되돌릴까요?")) { safeDel(STORE_KEY); safeDel(OVERRIDES_KEY); renderFixed(); }
-  });
-
-  /* ===== 내 즐겨찾기 (개인 · 기기별 저장) ===== */
-  var mineGrid = document.getElementById("mineGrid");
-  var mineCount = document.getElementById("mineCount");
-
-  function getMine() { var m = safeGet(MINE_KEY); return Array.isArray(m) ? m : []; }
-  function setMine(arr) { safeSet(MINE_KEY, arr); }
-
-  function makeMineCard(item) {
-    var el = document.createElement("div");
-    el.className = "card mine";
-    el.setAttribute("role", "link"); el.setAttribute("tabindex", "0");
-    el.dataset.id = item.id; el.dataset.name = item.name.toLowerCase(); el.dataset.url = item.url;
-    el.innerHTML =
-      '<span class="drag-handle" aria-label="카드 이동 손잡이"><i class="ti ti-grip-vertical"></i></span>' +
-      '<div class="card-icon"><i class="ti ti-link"></i></div>' +
-      '<div class="card-body"><div class="card-name">' + esc(item.name) + '</div>' +
-      '<div class="card-host">' + esc(hostOf(item.url)) + '</div></div>' +
-      '<button class="card-edit" aria-label="수정" title="수정"><i class="ti ti-pencil"></i></button>' +
-      '<button class="card-del" aria-label="삭제" title="삭제"><i class="ti ti-trash"></i></button>';
-    el.addEventListener("click", function (e) {
-      if (e.target.closest(".drag-handle")) return;
-      if (e.target.closest(".card-edit")) { e.stopPropagation(); openModal("edit-mine", item); return; }
-      if (e.target.closest(".card-del")) {
-        e.stopPropagation();
-        if (confirm('"' + item.name + '" 링크를 삭제할까요?')) { setMine(getMine().filter(function (x) { return x.id !== item.id; })); renderMine(); }
-        return;
+    el.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        if (e.target.closest(".card-edit") || e.target.closest(".card-del")) return;
+        e.preventDefault(); window.open(item.url, "_blank", "noopener");
       }
-      window.open(item.url, "_blank", "noopener");
     });
-    el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { if (e.target.closest(".card-edit") || e.target.closest(".card-del")) return; e.preventDefault(); window.open(item.url, "_blank", "noopener"); } });
     return el;
   }
 
@@ -517,25 +525,57 @@
     return b;
   }
 
-  function renderMine() {
-    var list = getMine();
-    mineGrid.innerHTML = "";
-    list.forEach(function (it) { mineGrid.appendChild(makeMineCard(it)); });
-    mineGrid.appendChild(makeAddTile());
-    mineCount.textContent = list.length;
+  function captureLayout() {
+    return allGrids.map(function (g) {
+      return Array.prototype.map.call(g.querySelectorAll(".card"), function (c) { return c.dataset.id; });
+    });
   }
-  function captureMine() {
-    var ids = Array.prototype.map.call(mineGrid.querySelectorAll(".card"), function (c) { return c.dataset.id; });
-    var byId = {}; getMine().forEach(function (x) { byId[x.id] = x; });
-    return ids.map(function (id) { return byId[id]; }).filter(Boolean);
+  function saveCurrentLayout() { safeSet(STORE_KEY, captureLayout()); }
+
+  function updateCounts() {
+    fixedGrids.forEach(function (g, i) { counts[i].textContent = g.querySelectorAll(".card").length; });
+    mineCount.textContent = mineGrid.querySelectorAll(".card").length;
   }
 
-  renderMine();
-  new Sortable(mineGrid, {
-    group: "ec-personal", handle: ".drag-handle", animation: 160, filter: ".add-tile", draggable: ".card",
-    ghostClass: "sortable-ghost", chosenClass: "sortable-chosen", dragClass: "sortable-drag",
-    onStart: function () { mineGrid.classList.add("drop-target-mine"); },
-    onEnd: function () { mineGrid.classList.remove("drop-target-mine"); var t = document.getElementById("addTile"); if (t) mineGrid.appendChild(t); setMine(captureMine()); }
+  function renderAll() {
+    var layout = resolveLayout();
+    allGrids.forEach(function (g) { g.innerHTML = ""; });
+    layout.forEach(function (ids, i) {
+      ids.forEach(function (id) {
+        if (BY_ID[id] && isHidden(id)) return;
+        var item = getCardItem(id);
+        if (item) allGrids[i].appendChild(makeCard(item));
+      });
+    });
+    mineGrid.appendChild(makeAddTile());
+    updateCounts();
+  }
+
+  function refreshDropTargets(add) {
+    allGrids.forEach(function (g) {
+      g.classList.toggle("drop-target", add);
+      if (g === mineGrid) g.classList.toggle("drop-target-mine", add);
+    });
+  }
+
+  renderAll();
+  allGrids.forEach(function (g) {
+    new Sortable(g, {
+      group: "ec-all-cards", handle: ".drag-handle", animation: 160, filter: ".add-tile", draggable: ".card",
+      ghostClass: "sortable-ghost", chosenClass: "sortable-chosen", dragClass: "sortable-drag",
+      onStart: function () { refreshDropTargets(true); },
+      onEnd: function () {
+        refreshDropTargets(false);
+        var t = document.getElementById("addTile"); if (t) mineGrid.appendChild(t);
+        updateCounts(); saveCurrentLayout();
+      }
+    });
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", function () {
+    if (confirm("기본 카드의 순서, 삭제, 이름 변경 내역을 기본값으로 되돌릴까요?\n직접 추가한 링크는 삭제되지 않고 '내 즐겨찾기'로 정리됩니다.")) {
+      safeDel(STORE_KEY); safeDel(OVERRIDES_KEY); renderAll();
+    }
   });
 
   /* ===== 추가 / 수정 / 이름변경 모달 (공용) ===== */
@@ -589,19 +629,19 @@
       if (!url) { mErr.textContent = "올바른 주소(URL)를 입력해 주세요. 예: example.com"; mUrl.focus(); return; }
       var list = getMine();
       list.push({ id: "mine-" + Date.now() + "-" + Math.floor(Math.random() * 1000), name: name, url: url });
-      setMine(list); renderMine(); closeModal();
+      setMine(list); renderAll(); saveCurrentLayout(); closeModal();
     } else if (modalMode === "edit-mine") {
       var url2 = normalizeUrl(mUrl.value);
       if (!url2) { mErr.textContent = "올바른 주소(URL)를 입력해 주세요. 예: example.com"; mUrl.focus(); return; }
       var list2 = getMine();
       var idx = list2.findIndex(function (x) { return x.id === modalTargetId; });
       if (idx !== -1) { list2[idx].name = name; list2[idx].url = url2; setMine(list2); }
-      renderMine(); closeModal();
+      renderAll(); saveCurrentLayout(); closeModal();
     } else if (modalMode === "rename-fixed") {
       var o = getOverrides();
       o[modalTargetId] = o[modalTargetId] || {};
       o[modalTargetId].name = name;
-      setOverrides(o); renderFixed(); closeModal();
+      setOverrides(o); renderAll(); saveCurrentLayout(); closeModal();
     }
   }
 

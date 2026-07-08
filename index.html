@@ -5,9 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>교육컨설팅팀 워크스페이스</title>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.3/Sortable.min.js"></script>
 <style>
+  /* 아이콘: 인라인 SVG 마스크 방식 (외부 폰트/인터넷 불필요) */
+  .ti{display:inline-block;width:1em;height:1em;vertical-align:-0.125em;flex-shrink:0;
+    background-color:currentColor;
+    -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+    -webkit-mask-position:center;mask-position:center;
+    -webkit-mask-size:contain;mask-size:contain;}
+  .ti-arrow-back-up{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M9%2014l-4%20-4l4%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M5%2010h11a4%204%200%201%201%200%208h-1%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M9%2014l-4%20-4l4%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M5%2010h11a4%204%200%201%201%200%208h-1%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-arrow-up-right{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M17%207l-10%2010%22%20%2F%3E%20%3Cpath%20d%3D%22M8%207l9%200l0%209%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M17%207l-10%2010%22%20%2F%3E%20%3Cpath%20d%3D%22M8%207l9%200l0%209%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-arrows-move{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M18%209l3%203l-3%203%22%20%2F%3E%20%3Cpath%20d%3D%22M15%2012h6%22%20%2F%3E%20%3Cpath%20d%3D%22M6%209l-3%203l3%203%22%20%2F%3E%20%3Cpath%20d%3D%22M3%2012h6%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2018l3%203l3%20-3%22%20%2F%3E%20%3Cpath%20d%3D%22M12%2015v6%22%20%2F%3E%20%3Cpath%20d%3D%22M15%206l-3%20-3l-3%203%22%20%2F%3E%20%3Cpath%20d%3D%22M12%203v6%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M18%209l3%203l-3%203%22%20%2F%3E%20%3Cpath%20d%3D%22M15%2012h6%22%20%2F%3E%20%3Cpath%20d%3D%22M6%209l-3%203l3%203%22%20%2F%3E%20%3Cpath%20d%3D%22M3%2012h6%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2018l3%203l3%20-3%22%20%2F%3E%20%3Cpath%20d%3D%22M12%2015v6%22%20%2F%3E%20%3Cpath%20d%3D%22M15%206l-3%20-3l-3%203%22%20%2F%3E%20%3Cpath%20d%3D%22M12%203v6%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-bookmark{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M18%207v14l-6%20-4l-6%204v-14a4%204%200%200%201%204%20-4h4a4%204%200%200%201%204%204%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M18%207v14l-6%20-4l-6%204v-14a4%204%200%200%201%204%20-4h4a4%204%200%200%201%204%204%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-building{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2021l18%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%208l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2012l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2016l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%208l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2012l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2016l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M5%2021v-16a2%202%200%200%201%202%20-2h10a2%202%200%200%201%202%202v16%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2021l18%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%208l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2012l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2016l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%208l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2012l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2016l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M5%2021v-16a2%202%200%200%201%202%20-2h10a2%202%200%200%201%202%202v16%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-calculator{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%205a2%202%200%200%201%202%20-2h12a2%202%200%200%201%202%202v14a2%202%200%200%201%20-2%202h-12a2%202%200%200%201%20-2%20-2l0%20-14%22%20%2F%3E%20%3Cpath%20d%3D%22M8%208a1%201%200%200%201%201%20-1h6a1%201%200%200%201%201%201v1a1%201%200%200%201%20-1%201h-6a1%201%200%200%201%20-1%20-1l0%20-1%22%20%2F%3E%20%3Cpath%20d%3D%22M8%2014l0%20.01%22%20%2F%3E%20%3Cpath%20d%3D%22M12%2014l0%20.01%22%20%2F%3E%20%3Cpath%20d%3D%22M16%2014l0%20.01%22%20%2F%3E%20%3Cpath%20d%3D%22M8%2017l0%20.01%22%20%2F%3E%20%3Cpath%20d%3D%22M12%2017l0%20.01%22%20%2F%3E%20%3Cpath%20d%3D%22M16%2017l0%20.01%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%205a2%202%200%200%201%202%20-2h12a2%202%200%200%201%202%202v14a2%202%200%200%201%20-2%202h-12a2%202%200%200%201%20-2%20-2l0%20-14%22%20%2F%3E%20%3Cpath%20d%3D%22M8%208a1%201%200%200%201%201%20-1h6a1%201%200%200%201%201%201v1a1%201%200%200%201%20-1%201h-6a1%201%200%200%201%20-1%20-1l0%20-1%22%20%2F%3E%20%3Cpath%20d%3D%22M8%2014l0%20.01%22%20%2F%3E%20%3Cpath%20d%3D%22M12%2014l0%20.01%22%20%2F%3E%20%3Cpath%20d%3D%22M16%2014l0%20.01%22%20%2F%3E%20%3Cpath%20d%3D%22M8%2017l0%20.01%22%20%2F%3E%20%3Cpath%20d%3D%22M12%2017l0%20.01%22%20%2F%3E%20%3Cpath%20d%3D%22M16%2017l0%20.01%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-calendar-event{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%207a2%202%200%200%201%202%20-2h12a2%202%200%200%201%202%202v12a2%202%200%200%201%20-2%202h-12a2%202%200%200%201%20-2%20-2l0%20-12%22%20%2F%3E%20%3Cpath%20d%3D%22M16%203l0%204%22%20%2F%3E%20%3Cpath%20d%3D%22M8%203l0%204%22%20%2F%3E%20%3Cpath%20d%3D%22M4%2011l16%200%22%20%2F%3E%20%3Cpath%20d%3D%22M8%2015h2v2h-2l0%20-2%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%207a2%202%200%200%201%202%20-2h12a2%202%200%200%201%202%202v12a2%202%200%200%201%20-2%202h-12a2%202%200%200%201%20-2%20-2l0%20-12%22%20%2F%3E%20%3Cpath%20d%3D%22M16%203l0%204%22%20%2F%3E%20%3Cpath%20d%3D%22M8%203l0%204%22%20%2F%3E%20%3Cpath%20d%3D%22M4%2011l16%200%22%20%2F%3E%20%3Cpath%20d%3D%22M8%2015h2v2h-2l0%20-2%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-chart-dots{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%203v18h18%22%20%2F%3E%20%3Cpath%20d%3D%22M7%209a2%202%200%201%200%204%200a2%202%200%201%200%20-4%200%22%20%2F%3E%20%3Cpath%20d%3D%22M17%207a2%202%200%201%200%204%200a2%202%200%201%200%20-4%200%22%20%2F%3E%20%3Cpath%20d%3D%22M12%2015a2%202%200%201%200%204%200a2%202%200%201%200%20-4%200%22%20%2F%3E%20%3Cpath%20d%3D%22M10.16%2010.62l2.34%202.88%22%20%2F%3E%20%3Cpath%20d%3D%22M15.088%2013.328l2.837%20-4.586%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%203v18h18%22%20%2F%3E%20%3Cpath%20d%3D%22M7%209a2%202%200%201%200%204%200a2%202%200%201%200%20-4%200%22%20%2F%3E%20%3Cpath%20d%3D%22M17%207a2%202%200%201%200%204%200a2%202%200%201%200%20-4%200%22%20%2F%3E%20%3Cpath%20d%3D%22M12%2015a2%202%200%201%200%204%200a2%202%200%201%200%20-4%200%22%20%2F%3E%20%3Cpath%20d%3D%22M10.16%2010.62l2.34%202.88%22%20%2F%3E%20%3Cpath%20d%3D%22M15.088%2013.328l2.837%20-4.586%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-checklist{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M9.615%2020h-2.615a2%202%200%200%201%20-2%20-2v-12a2%202%200%200%201%202%20-2h8a2%202%200%200%201%202%202v8%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2019l2%202l4%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M9%208h4%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2012h2%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M9.615%2020h-2.615a2%202%200%200%201%20-2%20-2v-12a2%202%200%200%201%202%20-2h8a2%202%200%200%201%202%202v8%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2019l2%202l4%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M9%208h4%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2012h2%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-credit-card{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%208a3%203%200%200%201%203%20-3h12a3%203%200%200%201%203%203v8a3%203%200%200%201%20-3%203h-12a3%203%200%200%201%20-3%20-3l0%20-8%22%20%2F%3E%20%3Cpath%20d%3D%22M3%2010l18%200%22%20%2F%3E%20%3Cpath%20d%3D%22M7%2015l.01%200%22%20%2F%3E%20%3Cpath%20d%3D%22M11%2015l2%200%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%208a3%203%200%200%201%203%20-3h12a3%203%200%200%201%203%203v8a3%203%200%200%201%20-3%203h-12a3%203%200%200%201%20-3%20-3l0%20-8%22%20%2F%3E%20%3Cpath%20d%3D%22M3%2010l18%200%22%20%2F%3E%20%3Cpath%20d%3D%22M7%2015l.01%200%22%20%2F%3E%20%3Cpath%20d%3D%22M11%2015l2%200%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-file-text{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M14%203v4a1%201%200%200%200%201%201h4%22%20%2F%3E%20%3Cpath%20d%3D%22M17%2021h-10a2%202%200%200%201%20-2%20-2v-14a2%202%200%200%201%202%20-2h7l5%205v11a2%202%200%200%201%20-2%202%22%20%2F%3E%20%3Cpath%20d%3D%22M9%209l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2013l6%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2017l6%200%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M14%203v4a1%201%200%200%200%201%201h4%22%20%2F%3E%20%3Cpath%20d%3D%22M17%2021h-10a2%202%200%200%201%20-2%20-2v-14a2%202%200%200%201%202%20-2h7l5%205v11a2%202%200%200%201%20-2%202%22%20%2F%3E%20%3Cpath%20d%3D%22M9%209l1%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2013l6%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2017l6%200%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-gavel{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M13%2010l7.383%207.418c.823%20.82%20.823%202.148%200%202.967a2.11%202.11%200%200%201%20-2.976%200l-7.407%20-7.385%22%20%2F%3E%20%3Cpath%20d%3D%22M6%209l4%204%22%20%2F%3E%20%3Cpath%20d%3D%22M13%2010l-4%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M3%2021h7%22%20%2F%3E%20%3Cpath%20d%3D%22M6.793%2015.793l-3.586%20-3.586a1%201%200%200%201%200%20-1.414l2.293%20-2.293l.5%20.5l3%20-3l-.5%20-.5l2.293%20-2.293a1%201%200%200%201%201.414%200l3.586%203.586a1%201%200%200%201%200%201.414l-2.293%202.293l-.5%20-.5l-3%203l.5%20.5l-2.293%202.293a1%201%200%200%201%20-1.414%200%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M13%2010l7.383%207.418c.823%20.82%20.823%202.148%200%202.967a2.11%202.11%200%200%201%20-2.976%200l-7.407%20-7.385%22%20%2F%3E%20%3Cpath%20d%3D%22M6%209l4%204%22%20%2F%3E%20%3Cpath%20d%3D%22M13%2010l-4%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M3%2021h7%22%20%2F%3E%20%3Cpath%20d%3D%22M6.793%2015.793l-3.586%20-3.586a1%201%200%200%201%200%20-1.414l2.293%20-2.293l.5%20.5l3%20-3l-.5%20-.5l2.293%20-2.293a1%201%200%200%201%201.414%200l3.586%203.586a1%201%200%200%201%200%201.414l-2.293%202.293l-.5%20-.5l-3%203l.5%20.5l-2.293%202.293a1%201%200%200%201%20-1.414%200%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-grip-vertical{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%205a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%20%3Cpath%20d%3D%22M8%2012a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%20%3Cpath%20d%3D%22M8%2019a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%205a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2012a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2019a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%205a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%20%3Cpath%20d%3D%22M8%2012a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%20%3Cpath%20d%3D%22M8%2019a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%205a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2012a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2019a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-layout-grid{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%205a1%201%200%200%201%201%20-1h4a1%201%200%200%201%201%201v4a1%201%200%200%201%20-1%201h-4a1%201%200%200%201%20-1%20-1l0%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M14%205a1%201%200%200%201%201%20-1h4a1%201%200%200%201%201%201v4a1%201%200%200%201%20-1%201h-4a1%201%200%200%201%20-1%20-1l0%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M4%2015a1%201%200%200%201%201%20-1h4a1%201%200%200%201%201%201v4a1%201%200%200%201%20-1%201h-4a1%201%200%200%201%20-1%20-1l0%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2015a1%201%200%200%201%201%20-1h4a1%201%200%200%201%201%201v4a1%201%200%200%201%20-1%201h-4a1%201%200%200%201%20-1%20-1l0%20-4%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%205a1%201%200%200%201%201%20-1h4a1%201%200%200%201%201%201v4a1%201%200%200%201%20-1%201h-4a1%201%200%200%201%20-1%20-1l0%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M14%205a1%201%200%200%201%201%20-1h4a1%201%200%200%201%201%201v4a1%201%200%200%201%20-1%201h-4a1%201%200%200%201%20-1%20-1l0%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M4%2015a1%201%200%200%201%201%20-1h4a1%201%200%200%201%201%201v4a1%201%200%200%201%20-1%201h-4a1%201%200%200%201%20-1%20-1l0%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2015a1%201%200%200%201%201%20-1h4a1%201%200%200%201%201%201v4a1%201%200%200%201%20-1%201h-4a1%201%200%200%201%20-1%20-1l0%20-4%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-layout-kanban{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%204l6%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%204l6%200%22%20%2F%3E%20%3Cpath%20d%3D%22M4%2010a2%202%200%200%201%202%20-2h2a2%202%200%200%201%202%202v8a2%202%200%200%201%20-2%202h-2a2%202%200%200%201%20-2%20-2l0%20-8%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2010a2%202%200%200%201%202%20-2h2a2%202%200%200%201%202%202v2a2%202%200%200%201%20-2%202h-2a2%202%200%200%201%20-2%20-2l0%20-2%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%204l6%200%22%20%2F%3E%20%3Cpath%20d%3D%22M14%204l6%200%22%20%2F%3E%20%3Cpath%20d%3D%22M4%2010a2%202%200%200%201%202%20-2h2a2%202%200%200%201%202%202v8a2%202%200%200%201%20-2%202h-2a2%202%200%200%201%20-2%20-2l0%20-8%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2010a2%202%200%200%201%202%20-2h2a2%202%200%200%201%202%202v2a2%202%200%200%201%20-2%202h-2a2%202%200%200%201%20-2%20-2l0%20-2%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-link{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M9%2015l6%20-6%22%20%2F%3E%20%3Cpath%20d%3D%22M11%206l.463%20-.536a5%205%200%200%201%207.071%207.072l-.534%20.464%22%20%2F%3E%20%3Cpath%20d%3D%22M13%2018l-.397%20.534a5.068%205.068%200%200%201%20-7.127%200a4.972%204.972%200%200%201%200%20-7.071l.524%20-.463%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M9%2015l6%20-6%22%20%2F%3E%20%3Cpath%20d%3D%22M11%206l.463%20-.536a5%205%200%200%201%207.071%207.072l-.534%20.464%22%20%2F%3E%20%3Cpath%20d%3D%22M13%2018l-.397%20.534a5.068%205.068%200%200%201%20-7.127%200a4.972%204.972%200%200%201%200%20-7.071l.524%20-.463%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-message-2{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%209h8%22%20%2F%3E%20%3Cpath%20d%3D%22M8%2013h6%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2018h-3a3%203%200%200%201%20-3%20-3v-8a3%203%200%200%201%203%20-3h12a3%203%200%200%201%203%203v8a3%203%200%200%201%20-3%203h-3l-3%203l-3%20-3%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%209h8%22%20%2F%3E%20%3Cpath%20d%3D%22M8%2013h6%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2018h-3a3%203%200%200%201%20-3%20-3v-8a3%203%200%200%201%203%20-3h12a3%203%200%200%201%203%203v8a3%203%200%200%201%20-3%203h-3l-3%203l-3%20-3%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-mood-empty{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2012a9%209%200%201%200%2018%200a9%209%200%201%200%20-18%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2010l.01%200%22%20%2F%3E%20%3Cpath%20d%3D%22M15%2010l.01%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2015l6%200%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2012a9%209%200%201%200%2018%200a9%209%200%201%200%20-18%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2010l.01%200%22%20%2F%3E%20%3Cpath%20d%3D%22M15%2010l.01%200%22%20%2F%3E%20%3Cpath%20d%3D%22M9%2015l6%200%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-moon{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%203c.132%200%20.263%200%20.393%200a7.5%207.5%200%200%200%207.92%2012.446a9%209%200%201%201%20-8.313%20-12.454l0%20.008%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%203c.132%200%20.263%200%20.393%200a7.5%207.5%200%200%200%207.92%2012.446a9%209%200%201%201%20-8.313%20-12.454l0%20.008%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-notebook{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%204h11a2%202%200%200%201%202%202v12a2%202%200%200%201%20-2%202h-11a1%201%200%200%201%20-1%20-1v-14a1%201%200%200%201%201%20-1m3%200v18%22%20%2F%3E%20%3Cpath%20d%3D%22M13%208l2%200%22%20%2F%3E%20%3Cpath%20d%3D%22M13%2012l2%200%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%204h11a2%202%200%200%201%202%202v12a2%202%200%200%201%20-2%202h-11a1%201%200%200%201%20-1%20-1v-14a1%201%200%200%201%201%20-1m3%200v18%22%20%2F%3E%20%3Cpath%20d%3D%22M13%208l2%200%22%20%2F%3E%20%3Cpath%20d%3D%22M13%2012l2%200%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-pencil{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2020h4l10.5%20-10.5a2.828%202.828%200%201%200%20-4%20-4l-10.5%2010.5v4%22%20%2F%3E%20%3Cpath%20d%3D%22M13.5%206.5l4%204%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2020h4l10.5%20-10.5a2.828%202.828%200%201%200%20-4%20-4l-10.5%2010.5v4%22%20%2F%3E%20%3Cpath%20d%3D%22M13.5%206.5l4%204%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-plus{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%205l0%2014%22%20%2F%3E%20%3Cpath%20d%3D%22M5%2012l14%200%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%205l0%2014%22%20%2F%3E%20%3Cpath%20d%3D%22M5%2012l14%200%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-rocket{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2013a8%208%200%200%201%207%207a6%206%200%200%200%203%20-5a9%209%200%200%200%206%20-8a3%203%200%200%200%20-3%20-3a9%209%200%200%200%20-8%206a6%206%200%200%200%20-5%203%22%20%2F%3E%20%3Cpath%20d%3D%22M7%2014a6%206%200%200%200%20-3%206a6%206%200%200%200%206%20-3%22%20%2F%3E%20%3Cpath%20d%3D%22M14%209a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2013a8%208%200%200%201%207%207a6%206%200%200%200%203%20-5a9%209%200%200%200%206%20-8a3%203%200%200%200%20-3%20-3a9%209%200%200%200%20-8%206a6%206%200%200%200%20-5%203%22%20%2F%3E%20%3Cpath%20d%3D%22M7%2014a6%206%200%200%200%20-3%206a6%206%200%200%200%206%20-3%22%20%2F%3E%20%3Cpath%20d%3D%22M14%209a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-school{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M22%209l-10%20-4l-10%204l10%204l10%20-4v6%22%20%2F%3E%20%3Cpath%20d%3D%22M6%2010.6v5.4a6%203%200%200%200%2012%200v-5.4%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M22%209l-10%20-4l-10%204l10%204l10%20-4v6%22%20%2F%3E%20%3Cpath%20d%3D%22M6%2010.6v5.4a6%203%200%200%200%2012%200v-5.4%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-search{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2010a7%207%200%201%200%2014%200a7%207%200%201%200%20-14%200%22%20%2F%3E%20%3Cpath%20d%3D%22M21%2021l-6%20-6%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2010a7%207%200%201%200%2014%200a7%207%200%201%200%20-14%200%22%20%2F%3E%20%3Cpath%20d%3D%22M21%2021l-6%20-6%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-signature{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2017c3.333%20-3.333%205%20-6%205%20-8c0%20-3%20-1%20-3%20-2%20-3s-2.032%201.085%20-2%203c.034%202.048%201.658%204.877%202.5%206c1.5%202%202.5%202.5%203.5%201l2%20-3c.333%202.667%201.333%204%203%204c.53%200%202.639%20-2%203%20-2c.517%200%201.517%20.667%203%202%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2017c3.333%20-3.333%205%20-6%205%20-8c0%20-3%20-1%20-3%20-2%20-3s-2.032%201.085%20-2%203c.034%202.048%201.658%204.877%202.5%206c1.5%202%202.5%202.5%203.5%201l2%20-3c.333%202.667%201.333%204%203%204c.53%200%202.639%20-2%203%20-2c.517%200%201.517%20.667%203%202%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-star{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%2017.75l-6.172%203.245l1.179%20-6.873l-5%20-4.867l6.9%20-1l3.086%20-6.253l3.086%206.253l6.9%201l-5%204.867l1.179%206.873l-6.158%20-3.245%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%2017.75l-6.172%203.245l1.179%20-6.873l-5%20-4.867l6.9%20-1l3.086%20-6.253l3.086%206.253l6.9%201l-5%204.867l1.179%206.873l-6.158%20-3.245%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-sun{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%2012a4%204%200%201%200%208%200a4%204%200%201%200%20-8%200%22%20%2F%3E%20%3Cpath%20d%3D%22M3%2012h1m8%20-9v1m8%208h1m-9%208v1m-6.4%20-15.4l.7%20.7m12.1%20-.7l-.7%20.7m0%2011.4l.7%20.7m-12.1%20-.7l-.7%20.7%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%2012a4%204%200%201%200%208%200a4%204%200%201%200%20-8%200%22%20%2F%3E%20%3Cpath%20d%3D%22M3%2012h1m8%20-9v1m8%208h1m-9%208v1m-6.4%20-15.4l.7%20.7m12.1%20-.7l-.7%20.7m0%2011.4l.7%20.7m-12.1%20-.7l-.7%20.7%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-table{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%205a2%202%200%200%201%202%20-2h14a2%202%200%200%201%202%202v14a2%202%200%200%201%20-2%202h-14a2%202%200%200%201%20-2%20-2v-14%22%20%2F%3E%20%3Cpath%20d%3D%22M3%2010h18%22%20%2F%3E%20%3Cpath%20d%3D%22M10%203v18%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%205a2%202%200%200%201%202%20-2h14a2%202%200%200%201%202%202v14a2%202%200%200%201%20-2%202h-14a2%202%200%200%201%20-2%20-2v-14%22%20%2F%3E%20%3Cpath%20d%3D%22M3%2010h18%22%20%2F%3E%20%3Cpath%20d%3D%22M10%203v18%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-trash{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%207l16%200%22%20%2F%3E%20%3Cpath%20d%3D%22M10%2011l0%206%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2011l0%206%22%20%2F%3E%20%3Cpath%20d%3D%22M5%207l1%2012a2%202%200%200%200%202%202h8a2%202%200%200%200%202%20-2l1%20-12%22%20%2F%3E%20%3Cpath%20d%3D%22M9%207v-3a1%201%200%200%201%201%20-1h4a1%201%200%200%201%201%201v3%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%207l16%200%22%20%2F%3E%20%3Cpath%20d%3D%22M10%2011l0%206%22%20%2F%3E%20%3Cpath%20d%3D%22M14%2011l0%206%22%20%2F%3E%20%3Cpath%20d%3D%22M5%207l1%2012a2%202%200%200%200%202%202h8a2%202%200%200%200%202%20-2l1%20-12%22%20%2F%3E%20%3Cpath%20d%3D%22M9%207v-3a1%201%200%200%201%201%20-1h4a1%201%200%200%201%201%201v3%22%20%2F%3E%3C%2Fsvg%3E");}
+  .ti-mail-off{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M9%205h10a2%202%200%200%201%202%202v10m-2%202h-14a2%202%200%200%201%20-2%20-2v-10a2%202%200%200%201%202%20-2%22%20%2F%3E%20%3Cpath%20d%3D%22M3%207l9%206l.565%20-.377m2.435%20-1.623l6%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M3%203l18%2018%22%20%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M9%205h10a2%202%200%200%201%202%202v10m-2%202h-14a2%202%200%200%201%20-2%20-2v-10a2%202%200%200%201%202%20-2%22%20%2F%3E%20%3Cpath%20d%3D%22M3%207l9%206l.565%20-.377m2.435%20-1.623l6%20-4%22%20%2F%3E%20%3Cpath%20d%3D%22M3%203l18%2018%22%20%2F%3E%3C%2Fsvg%3E");}
   :root {
     --bg: #f6f7fb;
     --paper: #ffffff;
@@ -118,8 +154,10 @@
   .tool-btn i { font-size: 16px; }
   .icon-btn { padding: 13px; }
   .icon-btn i { font-size: 18px; }
-  .hint { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--ink-faint); font-weight: 500; margin: -16px 0 30px 2px; opacity: 0; animation: rise 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s forwards; }
-  .hint i { font-size: 15px; }
+  .hint { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; line-height: 1.7; color: var(--ink-faint); font-weight: 500; margin: -16px 0 30px 2px; opacity: 0; animation: rise 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s forwards; }
+  .hint > .ti-arrows-move { font-size: 15px; margin-top: 4px; flex-shrink: 0; }
+  .hint-text { min-width: 0; }
+  .hint-text .ti { font-size: 14px; margin: 0 1px; }
 
   .section { margin-bottom: 42px; opacity: 0; animation: rise 0.7s cubic-bezier(0.22,1,0.36,1) forwards; }
   .section:nth-of-type(1) { animation-delay: 0.14s; }
@@ -156,8 +194,9 @@
   .card-host { font-size: 12.5px; color: var(--ink-faint); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
   .card-arrow { flex-shrink: 0; font-size: 17px; color: var(--ink-faint); opacity: 0; transform: translateX(-4px); transition: opacity 0.22s, transform 0.22s, color 0.22s; }
   .card:hover .card-arrow { opacity: 1; transform: translateX(0); color: var(--accent); }
-  .card-del { flex-shrink: 0; font-size: 16px; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 8px; color: var(--ink-faint); background: transparent; border: none; cursor: pointer; opacity: 0; transition: opacity 0.2s, background 0.2s, color 0.2s; }
-  .card:hover .card-del { opacity: 1; }
+  .card-edit, .card-del { flex-shrink: 0; font-size: 16px; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 8px; color: var(--ink-faint); background: transparent; border: none; cursor: pointer; opacity: 0; transition: opacity 0.2s, background 0.2s, color 0.2s; }
+  .card:hover .card-edit, .card:hover .card-del { opacity: 1; }
+  .card-edit:hover { background: var(--accent-soft); color: var(--accent-deep); }
   .card-del:hover { background: #fdeaea; color: #c0392b; }
   .badge { font-size: 10.5px; font-weight: 700; color: var(--accent-deep); background: var(--accent-soft); padding: 2px 7px; border-radius: 6px; margin-left: 6px; letter-spacing: 0.02em; vertical-align: middle; }
   .badge.hot { color: #fff; background: linear-gradient(135deg, #f97316, #fb923c); }
@@ -231,9 +270,12 @@
       <input type="text" id="search" placeholder="사이트 이름으로 빠르게 찾기 (예: 그룹웨어, 나라장터)" autocomplete="off" />
     </div>
     <button class="tool-btn icon-btn" id="themeBtn" title="화면 모드 전환" aria-label="화면 모드 전환"><i class="ti ti-moon"></i></button>
-    <button class="tool-btn" id="resetBtn"><i class="ti ti-arrow-back-up"></i>기본 순서로</button>
+    <button class="tool-btn" id="resetBtn"><i class="ti ti-arrow-back-up"></i>기본값으로 초기화</button>
   </div>
-  <div class="hint"><i class="ti ti-arrows-move"></i>카드 왼쪽 손잡이를 끌어 위치를 옮길 수 있고, 맨 아래 '내 즐겨찾기'에 나만의 링크를 추가할 수 있어요. 모든 변경 사항은 이 기기에 저장됩니다.</div>
+  <div class="hint">
+    <i class="ti ti-arrows-move"></i>
+    <span class="hint-text">카드 왼쪽의 손잡이를 끌어 순서를 바꿀 수 있어요. 카드에 마우스를 올리면 나타나는 연필(<i class="ti ti-pencil"></i>) 아이콘으로 이름을 수정하고, 휴지통(<i class="ti ti-trash"></i>) 아이콘으로 삭제할 수 있습니다. 맨 아래 '내 즐겨찾기'에는 나만의 링크를 직접 추가할 수 있으며, 모든 변경 사항은 이 기기(브라우저)에만 저장됩니다.</span>
+  </div>
 
   <section class="section" data-section data-idx="0">
     <div class="section-head">
@@ -281,12 +323,14 @@
 
 <div class="modal-overlay" id="modal">
   <div class="modal">
-    <h3>내 즐겨찾기 추가</h3>
-    <p>자주 쓰는 사이트를 등록해 두면 클릭 한 번으로 이동할 수 있어요.</p>
+    <h3 id="m-title">내 즐겨찾기 추가</h3>
+    <p id="m-desc">자주 쓰는 사이트를 등록해 두면 클릭 한 번으로 이동할 수 있어요.</p>
     <label for="m-name">이름</label>
     <input type="text" id="m-name" placeholder="예: 네이버 메일" maxlength="40" />
-    <label for="m-url">주소 (URL)</label>
-    <input type="text" id="m-url" placeholder="예: mail.naver.com" />
+    <div id="urlField">
+      <label for="m-url">주소 (URL)</label>
+      <input type="text" id="m-url" placeholder="예: mail.naver.com" />
+    </div>
     <div class="modal-err" id="m-err"></div>
     <div class="modal-actions">
       <button class="btn-cancel" id="m-cancel">취소</button>
@@ -299,12 +343,13 @@
   var STORE_KEY = "ec-workspace-layout-v1";
   var MINE_KEY = "ec-workspace-personal-v1";
   var THEME_KEY = "ec-workspace-theme-v1";
+  var OVERRIDES_KEY = "ec-workspace-overrides-v1"; /* 고정 카드의 이름 변경 / 삭제(숨김) 내역 - 기기별 저장 */
 
   var DEFAULTS = [
     [
       { id: "sales-dashboard", name: "영업관리 대시보드", url: "https://uufljwuz.gensparkspace.com/", icon: "ti-chart-dots", badge: "" },
       { id: "task-manager", name: "프로젝트 태스크 관리", url: "https://project-manager-wine-three.vercel.app/", icon: "ti-layout-kanban", badge: "" },
-      { id: "team-calendar", name: "운영 캘린더", url: "https://calender-seven-amber.vercel.app/", icon: "ti-calendar-event", badge: "NEW" },
+      { id: "team-calendar", name: "운영 캘린더", url: "https://calender-seven-amber.vercel.app/", icon: "ti-calendar-event", badge: "" },
       { id: "sales-record", name: "영업실적기재", url: "https://docs.google.com/spreadsheets/d/1WeUHusoc8GLnR9N4XUOBPClLEfLcf09Dp6vMa6VKdm4/edit?usp=sharing", icon: "ti-table", badge: "대시보드 연동" },
       { id: "task-individual", name: "개별 업무 관리", url: "https://i-scream-media-hq.slack.com/lists/T0A3WHEFERH/F0AMQN9P62J", icon: "ti-checklist", badge: "Slack" },
       { id: "weekly-report", name: "주간보고", url: "https://docs.google.com/document/d/1cXK5sz2ReNj6Eebu1dcOUlCenNqrYpvkJUK-2ACxMC0/edit?usp=drive_link", icon: "ti-file-text", badge: "" },
@@ -313,7 +358,8 @@
     [
       { id: "groupware", name: "그룹웨어", url: "https://gw.i-screammedia.com/gw/uat/uia/egovLoginUsr.do", icon: "ti-layout-grid", badge: "" },
       { id: "erp", name: "ERP", url: "https://erp.i-screammedia.com/?pgmseq=.35.32.35.36.36.33&doctype=.33&docseq=.36.31.34", icon: "ti-calculator", badge: "" },
-      { id: "hyundai-card", name: "현대카드 매출전표", url: "https://mycompany.hyundaicard.com/hs/cs/HSCS1002.do?_method=s&_proc=authCard", icon: "ti-credit-card", badge: "" }
+      { id: "hyundai-card", name: "현대카드 매출전표", url: "https://mycompany.hyundaicard.com/hs/cs/HSCS1002.do?_method=s&_proc=authCard", icon: "ti-credit-card", badge: "" },
+      { id: "spamout", name: "스팸아웃", url: "http://spam.sigongmedia.co.kr/", icon: "ti-mail-off", badge: "" }
     ],
     [
       { id: "g2b", name: "나라장터", url: "https://www.g2b.go.kr/", icon: "ti-gavel", badge: "" },
@@ -331,6 +377,12 @@
   function safeGet(k) { try { var r = localStorage.getItem(k); return r ? JSON.parse(r) : null; } catch (e) { return null; } }
   function safeSet(k, o) { try { localStorage.setItem(k, JSON.stringify(o)); } catch (e) {} }
   function safeDel(k) { try { localStorage.removeItem(k); } catch (e) {} }
+
+  /* ===== 고정 카드 이름변경 / 삭제(숨김) 내역 (기기별 저장) ===== */
+  function getOverrides() { var o = safeGet(OVERRIDES_KEY); return (o && typeof o === "object" && !Array.isArray(o)) ? o : {}; }
+  function setOverrides(o) { safeSet(OVERRIDES_KEY, o); }
+  function fixedName(item) { var o = getOverrides(); return (o[item.id] && o[item.id].name) ? o[item.id].name : item.name; }
+  function isHidden(id) { var o = getOverrides(); return !!(o[id] && o[id].hidden); }
 
   /* ===== 다크 모드 ===== */
   var themeBtn = document.getElementById("themeBtn");
@@ -370,25 +422,43 @@
   var counts = document.querySelectorAll("[data-count]");
 
   function makeCard(item) {
+    var name = fixedName(item);
     var el = document.createElement("div");
     el.className = "card";
     el.setAttribute("role", "link"); el.setAttribute("tabindex", "0");
-    el.dataset.id = item.id; el.dataset.name = item.name.toLowerCase(); el.dataset.url = item.url;
+    el.dataset.id = item.id; el.dataset.name = name.toLowerCase(); el.dataset.url = item.url;
     var badgeCls = item.badge === "NEW" ? "badge hot" : "badge";
     el.innerHTML =
       '<span class="drag-handle" aria-label="카드 이동 손잡이"><i class="ti ti-grip-vertical"></i></span>' +
       '<div class="card-icon"><i class="ti ' + item.icon + '"></i></div>' +
-      '<div class="card-body"><div class="card-name">' + esc(item.name) + (item.badge ? '<span class="' + badgeCls + '">' + esc(item.badge) + '</span>' : '') + '</div>' +
+      '<div class="card-body"><div class="card-name">' + esc(name) + (item.badge ? '<span class="' + badgeCls + '">' + esc(item.badge) + '</span>' : '') + '</div>' +
       '<div class="card-host">' + esc(hostOf(item.url)) + '</div></div>' +
+      '<button class="card-edit" aria-label="이름 수정" title="이름 수정"><i class="ti ti-pencil"></i></button>' +
+      '<button class="card-del" aria-label="삭제" title="삭제"><i class="ti ti-trash"></i></button>' +
       '<i class="ti ti-arrow-up-right card-arrow"></i>';
-    el.addEventListener("click", function (e) { if (e.target.closest(".drag-handle")) return; window.open(item.url, "_blank", "noopener"); });
-    el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); window.open(item.url, "_blank", "noopener"); } });
+    el.addEventListener("click", function (e) {
+      if (e.target.closest(".drag-handle")) return;
+      if (e.target.closest(".card-edit")) { e.stopPropagation(); openModal("rename-fixed", { id: item.id, name: fixedName(item) }); return; }
+      if (e.target.closest(".card-del")) {
+        e.stopPropagation();
+        if (confirm('"' + fixedName(item) + '" 카드를 삭제할까요?\n나중에 "기본값으로 초기화" 버튼으로 다시 불러올 수 있어요.')) {
+          var o = getOverrides(); o[item.id] = o[item.id] || {}; o[item.id].hidden = true; setOverrides(o); renderFixed();
+        }
+        return;
+      }
+      window.open(item.url, "_blank", "noopener");
+    });
+    el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { if (e.target.closest(".card-edit") || e.target.closest(".card-del")) return; e.preventDefault(); window.open(item.url, "_blank", "noopener"); } });
     return el;
   }
 
   function renderFixed() {
     var layout = resolveLayout();
-    grids.forEach(function (g, i) { g.innerHTML = ""; layout[i].forEach(function (id) { g.appendChild(makeCard(BY_ID[id])); }); counts[i].textContent = layout[i].length; });
+    grids.forEach(function (g, i) {
+      g.innerHTML = "";
+      layout[i].forEach(function (id) { if (isHidden(id)) return; g.appendChild(makeCard(BY_ID[id])); });
+      counts[i].textContent = g.querySelectorAll(".card").length;
+    });
   }
   function captureFixed() { var out = []; grids.forEach(function (g) { out.push(Array.prototype.map.call(g.querySelectorAll(".card"), function (c) { return c.dataset.id; })); }); return out; }
   function updateFixedCounts() { grids.forEach(function (g, i) { counts[i].textContent = g.querySelectorAll(".card").length; }); }
@@ -402,7 +472,9 @@
       onEnd: function () { grids.forEach(function (x) { x.classList.remove("drop-target"); }); updateFixedCounts(); safeSet(STORE_KEY, captureFixed()); }
     });
   });
-  document.getElementById("resetBtn").addEventListener("click", function () { safeDel(STORE_KEY); renderFixed(); });
+  document.getElementById("resetBtn").addEventListener("click", function () {
+    if (confirm("카드 순서, 삭제, 이름 변경 내역을 모두 기본값으로 되돌릴까요?")) { safeDel(STORE_KEY); safeDel(OVERRIDES_KEY); renderFixed(); }
+  });
 
   /* ===== 내 즐겨찾기 (개인 · 기기별 저장) ===== */
   var mineGrid = document.getElementById("mineGrid");
@@ -421,9 +493,11 @@
       '<div class="card-icon"><i class="ti ti-link"></i></div>' +
       '<div class="card-body"><div class="card-name">' + esc(item.name) + '</div>' +
       '<div class="card-host">' + esc(hostOf(item.url)) + '</div></div>' +
+      '<button class="card-edit" aria-label="수정" title="수정"><i class="ti ti-pencil"></i></button>' +
       '<button class="card-del" aria-label="삭제" title="삭제"><i class="ti ti-trash"></i></button>';
     el.addEventListener("click", function (e) {
       if (e.target.closest(".drag-handle")) return;
+      if (e.target.closest(".card-edit")) { e.stopPropagation(); openModal("edit-mine", item); return; }
       if (e.target.closest(".card-del")) {
         e.stopPropagation();
         if (confirm('"' + item.name + '" 링크를 삭제할까요?')) { setMine(getMine().filter(function (x) { return x.id !== item.id; })); renderMine(); }
@@ -431,7 +505,7 @@
       }
       window.open(item.url, "_blank", "noopener");
     });
-    el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { if (e.target.closest(".card-del")) return; e.preventDefault(); window.open(item.url, "_blank", "noopener"); } });
+    el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { if (e.target.closest(".card-edit") || e.target.closest(".card-del")) return; e.preventDefault(); window.open(item.url, "_blank", "noopener"); } });
     return el;
   }
 
@@ -439,7 +513,7 @@
     var b = document.createElement("button");
     b.className = "add-tile"; b.id = "addTile";
     b.innerHTML = '<i class="ti ti-plus"></i>링크 추가';
-    b.addEventListener("click", openModal);
+    b.addEventListener("click", function () { openModal("add-mine"); });
     return b;
   }
 
@@ -464,13 +538,39 @@
     onEnd: function () { mineGrid.classList.remove("drop-target-mine"); var t = document.getElementById("addTile"); if (t) mineGrid.appendChild(t); setMine(captureMine()); }
   });
 
-  /* ===== 추가 모달 ===== */
+  /* ===== 추가 / 수정 / 이름변경 모달 (공용) ===== */
   var modal = document.getElementById("modal");
+  var mTitle = document.getElementById("m-title");
+  var mDesc = document.getElementById("m-desc");
   var mName = document.getElementById("m-name");
   var mUrl = document.getElementById("m-url");
   var mErr = document.getElementById("m-err");
-  function openModal() { mName.value = ""; mUrl.value = ""; mErr.textContent = ""; modal.classList.add("open"); setTimeout(function () { mName.focus(); }, 50); }
-  function closeModal() { modal.classList.remove("open"); }
+  var mSave = document.getElementById("m-save");
+  var urlField = document.getElementById("urlField");
+  var modalMode = null;   // "add-mine" | "edit-mine" | "rename-fixed"
+  var modalTargetId = null;
+
+  function openModal(mode, item) {
+    modalMode = mode;
+    modalTargetId = item ? item.id : null;
+    mErr.textContent = "";
+    if (mode === "add-mine") {
+      mTitle.textContent = "내 즐겨찾기 추가";
+      mDesc.textContent = "자주 쓰는 사이트를 등록해 두면 클릭 한 번으로 이동할 수 있어요.";
+      urlField.style.display = ""; mName.value = ""; mUrl.value = ""; mSave.textContent = "추가";
+    } else if (mode === "edit-mine") {
+      mTitle.textContent = "즐겨찾기 수정";
+      mDesc.textContent = "이름과 주소(URL)를 수정할 수 있어요.";
+      urlField.style.display = ""; mName.value = item.name; mUrl.value = item.url; mSave.textContent = "저장";
+    } else if (mode === "rename-fixed") {
+      mTitle.textContent = "이름 수정";
+      mDesc.textContent = "이 카드에 표시할 이름을 바꿀 수 있어요. (주소는 바뀌지 않아요)";
+      urlField.style.display = "none"; mName.value = item.name; mSave.textContent = "저장";
+    }
+    modal.classList.add("open");
+    setTimeout(function () { mName.focus(); mName.select(); }, 50);
+  }
+  function closeModal() { modal.classList.remove("open"); modalMode = null; modalTargetId = null; }
 
   function normalizeUrl(u) {
     u = u.trim();
@@ -479,20 +579,37 @@
     try { var p = new URL(u); if (!p.hostname || p.hostname.indexOf(".") === -1) return ""; return p.href; }
     catch (e) { return ""; }
   }
-  function saveMine() {
+
+  function saveModal() {
     var name = mName.value.trim();
-    var url = normalizeUrl(mUrl.value);
     if (!name) { mErr.textContent = "이름을 입력해 주세요."; mName.focus(); return; }
-    if (!url) { mErr.textContent = "올바른 주소(URL)를 입력해 주세요. 예: example.com"; mUrl.focus(); return; }
-    var list = getMine();
-    list.push({ id: "mine-" + Date.now() + "-" + Math.floor(Math.random() * 1000), name: name, url: url });
-    setMine(list); renderMine(); closeModal();
+
+    if (modalMode === "add-mine") {
+      var url = normalizeUrl(mUrl.value);
+      if (!url) { mErr.textContent = "올바른 주소(URL)를 입력해 주세요. 예: example.com"; mUrl.focus(); return; }
+      var list = getMine();
+      list.push({ id: "mine-" + Date.now() + "-" + Math.floor(Math.random() * 1000), name: name, url: url });
+      setMine(list); renderMine(); closeModal();
+    } else if (modalMode === "edit-mine") {
+      var url2 = normalizeUrl(mUrl.value);
+      if (!url2) { mErr.textContent = "올바른 주소(URL)를 입력해 주세요. 예: example.com"; mUrl.focus(); return; }
+      var list2 = getMine();
+      var idx = list2.findIndex(function (x) { return x.id === modalTargetId; });
+      if (idx !== -1) { list2[idx].name = name; list2[idx].url = url2; setMine(list2); }
+      renderMine(); closeModal();
+    } else if (modalMode === "rename-fixed") {
+      var o = getOverrides();
+      o[modalTargetId] = o[modalTargetId] || {};
+      o[modalTargetId].name = name;
+      setOverrides(o); renderFixed(); closeModal();
+    }
   }
-  document.getElementById("m-save").addEventListener("click", saveMine);
+
+  mSave.addEventListener("click", saveModal);
   document.getElementById("m-cancel").addEventListener("click", closeModal);
   modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
-  mUrl.addEventListener("keydown", function (e) { if (e.key === "Enter") saveMine(); });
-  mName.addEventListener("keydown", function (e) { if (e.key === "Enter") mUrl.focus(); });
+  mUrl.addEventListener("keydown", function (e) { if (e.key === "Enter") saveModal(); });
+  mName.addEventListener("keydown", function (e) { if (e.key === "Enter") { if (urlField.style.display === "none") saveModal(); else mUrl.focus(); } });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
 
   /* ===== 검색 ===== */
